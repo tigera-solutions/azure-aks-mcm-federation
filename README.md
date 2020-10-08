@@ -162,7 +162,6 @@ kubectl create -f remote-cluster-configuration-northeurope.yaml
 for REGION in eastus westus2 northeurope westeurope
 do
 export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
-kubectl apply -f https://docs.tigera.io/master/manifests/tigera-policies-managed.yaml # bug in 3.2
 kubectl apply -f ubuntu-$REGION.yaml
 kubectl apply -f tiers
 kubectl apply -f networkpolicy
