@@ -1,0 +1,28 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: compliance-controls.enforce-gdpr-data-sovereignty
+spec:
+  tier: compliance-controls
+  order: 0
+  selector: all()
+  namespaceSelector: ''
+  serviceAccountSelector: ''
+  ingress:
+    - action: Deny
+      source:
+        selector: geography != "eu"
+      destination:
+        selector: geography == "eu"
+  egress:
+    - action: Deny
+      source:
+        selector: geography == "eu"
+      destination:
+        selector: geography != "eu"
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Ingress
+    - Egress

@@ -1,0 +1,9 @@
+apiVersion: projectcalico.org/v3
+kind: RemoteClusterConfiguration
+metadata:
+  name: calico-demo-westus2
+spec:
+  clusterAccessSecret:
+    name: remote-cluster-secret-calico-demo-westus2
+    namespace: calico-system
+    kind: Secret

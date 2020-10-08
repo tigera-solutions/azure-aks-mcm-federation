@@ -1,0 +1,5 @@
+local-config.mk
+local-config.mk*
+_output/
+translations/
+.DS_Store

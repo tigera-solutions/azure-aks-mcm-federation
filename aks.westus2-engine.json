@@ -1,0 +1,53 @@
+{
+  "apiVersion": "vlabs",
+  "properties": {
+    "orchestratorProfile": {
+      "orchestratorType": "Kubernetes",
+      "orchestratorRelease": "1.18",
+      "kubernetesConfig": {
+        "networkPlugin": "azure",
+        "networkMode": "transparent",
+        "useManagedIdentity": true,
+        "dnsServiceIP": "10.1.4.10",
+        "serviceCidr": "10.1.4.0/22",
+        "clusterSubnet": "10.1.0.0/22"
+      }
+    },
+    "masterProfile": {
+      "count": 1,
+      "dnsPrefix": "calico-demo-westus2",
+      "vmSize": "Standard_D4s_v3",
+      "vnetSubnetId": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/calico-demo-westus2/providers/Microsoft.Network/virtualNetworks/calico-demo-westus2-vnet-1/subnets/calico-demo-subnet-1",
+      "firstConsecutiveStaticIP": "10.1.0.224",
+      "OSDiskSizeGB": 100,
+      "vnetCidr": "10.0.0.0/8"
+    },
+    "agentPoolProfiles": [
+      {
+        "name": "demopool",
+        "count": 3,
+        "vmSize": "Standard_D4s_v3",
+        "vnetSubnetId": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/calico-demo-westus2/providers/Microsoft.Network/virtualNetworks/calico-demo-westus2-vnet-1/subnets/calico-demo-subnet-1",
+        "OSDiskSizeGB": 1000,
+        "storageProfile" : "ManagedDisks",
+        "availabilityProfile": "AvailabilitySet",
+        "customNodeLabels": {
+          "region": "westus2",
+          "location": "washington",
+          "geography": "us",
+          "gdpr": "true"
+        }
+      }
+    ],
+    "linuxProfile": {
+      "adminUsername": "azureadmin",
+      "ssh": {
+        "publicKeys": [
+          {
+            "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsi+rMbWujrAJbRyee4wLwB7qWVG3VzZdSj3xlfdnZaMp2PBKjhryAljF9jwVuzQKsNDjkWfxGEmCsUJ9GU0m9PSrLZC78etd3FivEnihZumAlUzkGDq+WgMqOyWPhfCikNqldlnkS4BB0IdwNej8RuDj6OEzvyJDvfGzjBtj6sR2hAaUM7KBh6MCu/BXOsbKF+/A5LwaZylDD1kBjXqEdLth9qgw11SyO2b5na3HHu2a13jOPbCuqKTKzvmxIadb1Eo/eV8sq/AnjmPK4y0qOD6KyqsOEpPjlqIbH7FJIL0nhRcaKVfD1HNKLlSmOWKSG8cimmJimBgw84OPIAc0v jonathan@tigera.io"
+          }
+        ]
+      }
+    }
+  }
+}

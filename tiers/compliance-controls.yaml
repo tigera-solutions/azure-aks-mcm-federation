@@ -1,0 +1,7 @@
+---
+apiVersion: projectcalico.org/v3
+kind: Tier
+metadata:
+  name: compliance-controls
+spec:
+  order: 150
