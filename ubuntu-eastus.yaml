@@ -9,7 +9,6 @@ metadata:
     location: virgina
     geography: us
     release-stage: dev
-    gdpr: "false"
 spec:
   containers:
   - image: ubuntu

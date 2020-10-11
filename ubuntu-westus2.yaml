@@ -9,7 +9,6 @@ metadata:
     location: washington
     geography: us
     release-stage: prod
-    gdpr: "false"
 spec:
   containers:
   - image: ubuntu

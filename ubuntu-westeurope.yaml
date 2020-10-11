@@ -9,7 +9,6 @@ metadata:
     location: netherlands
     geography: eu
     release-stage: dev
-    gdpr: "true"
 spec:
   containers:
   - image: ubuntu

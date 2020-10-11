@@ -1,0 +1,22 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: platform-team.allow-cluster-dns
+spec:
+  tier: platform-team
+  order: 10
+  selector: all()
+  namespaceSelector: ''
+  serviceAccountSelector: ''
+  egress:
+    - action: Allow
+      source: {}
+      destination:
+        selector: >-
+          k8s-app == "kube-dns"||dns.operator.openshift.io/daemonset-dns ==
+          "default"
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
+  types:
+    - Egress

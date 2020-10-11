@@ -1,0 +1,33 @@
+---
+apiVersion: projectcalico.org/v3
+kind: FelixConfiguration
+metadata:
+  name: default
+spec:
+  flowLogsFlushInterval: 10s
+  flowLogsFileAggregationKindForAllowed: 1
+  dnsLogsFlushInterval: 10s
+  failsafeInboundHostPorts:
+  - protocol: tcp
+    port: 22
+  - protocol: tcp
+    port: 68
+  - protocol: tcp
+    port: 179
+  - protocol: tcp
+    port: 2379
+  - protocol: tcp
+    port: 6443
+  failsafeOutboundHostPorts:
+  - protocol: udp
+    port: 53
+  - protocol: tcp
+    port: 67
+  - protocol: tcp
+    port: 179
+  - protocol: tcp
+    port: 2379
+  - protocol: tcp
+    port: 2380
+  - protocol: tcp
+    port: 6443

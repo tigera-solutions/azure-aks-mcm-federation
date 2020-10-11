@@ -9,7 +9,6 @@ metadata:
     location: ireland
     geography: eu
     release-stage: prod
-    gdpr: "true"
 spec:
   containers:
   - image: ubuntu

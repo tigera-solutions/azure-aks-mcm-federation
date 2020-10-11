@@ -2,6 +2,6 @@
 apiVersion: projectcalico.org/v3
 kind: Tier
 metadata:
-  name: compliance-controls
+  name: platform-team
 spec:
-  order: 175
+  order: 125
