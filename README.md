@@ -198,6 +198,7 @@ We will use the `geography` label to identify workloads running across our globa
 for REGION in eastus westus2 northeurope westeurope
 do
 export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
+kubectl apply -f felix
 kubectl apply -f tiers
 kubectl apply -f networkpolicy
 done
