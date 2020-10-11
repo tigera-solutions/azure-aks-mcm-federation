@@ -188,9 +188,9 @@ cat ubuntu-* | grep label -A 6
 
 | eastus | westus2 | westeurope | northeurope |
 |-|-|-|-|
-| app: ubuntu<br>region: eastus<br>location: virgina<br>geography: us<br>release-stage: dev<br>gdpr: "false" | app: ubuntu<br>region: westus2<br>location: washington<br>geography: us<br>release-stage: prod<br>gdpr: "false" | app: ubuntu<br>region: westeurope<br>location: netherlands<br>geography: eu<br>release-stage: dev<br>gdpr: "true" | app: ubuntu<br>region: northeurope<br>location: ireland<br>geography: eu<br>release-stage: prod<br>gdpr: "true" |
+| app: ubuntu<br>region: eastus<br>location: virgina<br>geography: us<br>release-stage: dev | app: ubuntu<br>region: westus2<br>location: washington<br>geography: us<br>release-stage: prod | app: ubuntu<br>region: westeurope<br>location: netherlands<br>geography: eu<br>release-stage: dev | app: ubuntu<br>region: northeurope<br>location: ireland<br>geography: eu<br>release-stage: prod |
 
-We will use the `geography` and `gdpr` labels to identify workloads running across our global set of clusters by physical location and security compliance requirements.  We'll use the federated workload identity to apply policy and control traffic.
+We will use the `geography` label to identify workloads running across our global set of clusters by physical location and security compliance requirements.  We'll use the federated workload identity to apply policy and control traffic.
 
 ### Examine the `enforce-gdpr-data-sovereignty` policy in the `complicance-controls` policy tier
 
