@@ -163,9 +163,19 @@ for REGION in eastus westus2 northeurope westeurope
 do
 export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
 kubectl apply -f ubuntu-$REGION.yaml
-kubectl apply -f tiers
-kubectl apply -f networkpolicy
 done
+```
+
+Open a shell in each pod and attempt to ping from one ubuntu demo app to another across the globally disparate regions.
+
+```
+kubect get pods -o wide --show-labels
+kubectl exec -it ubuntu bash
+```
+
+```
+apt-get update && apt-get install -y iputils-ping
+ping POD_IP
 ```
 
 ## Multi Cluster Management Use Case: Enforce EU General Data Protection Regulation (GDPR) data residency requirements
@@ -184,6 +194,14 @@ We will use the `geography` and `gdpr` labels to identify workloads running acro
 
 ### Examine the `enforce-gdpr-data-sovereignty` policy in the `complicance-controls` policy tier
 
+```
+for REGION in eastus westus2 northeurope westeurope
+do
+export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
+kubectl apply -f tiers
+kubectl apply -f networkpolicy
+done
+```
 
 ```
 cat networkpolicy/compliance-controls.enforce-gdpr-data-sovereignty.yaml
@@ -228,7 +246,6 @@ kubectl exec -it ubuntu bash
 ```
 
 ```
-apt-get update && apt-get install -y iputils-ping
 ping POD_IP
 ```
 
