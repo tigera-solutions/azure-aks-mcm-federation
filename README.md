@@ -169,7 +169,7 @@ done
 Open a shell in each pod and attempt to ping from one ubuntu demo app to another across the globally disparate regions.
 
 ```
-kubect get pods -o wide --show-labels
+kubectl get pods -o wide --show-labels
 kubectl exec -it ubuntu bash
 ```
 
