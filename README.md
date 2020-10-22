@@ -1,5 +1,9 @@
 # azure-aks-mcm-federation
 
+This content was built for free training workshops. 
+
+If you're looking for general docs for Calico Enterprise, we recommend you start [here](https://docs.tigera.io)
+
 ## Create Azure resource groups for each region
 
 ```
