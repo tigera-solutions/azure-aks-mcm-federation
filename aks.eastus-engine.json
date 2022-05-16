@@ -3,7 +3,7 @@
   "properties": {
     "orchestratorProfile": {
       "orchestratorType": "Kubernetes",
-      "orchestratorRelease": "1.18",
+      "orchestratorVersion": "1.22.5",
       "kubernetesConfig": {
         "networkPlugin": "azure",
         "networkMode": "transparent",
