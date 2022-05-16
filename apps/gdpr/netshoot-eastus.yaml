@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: netshoot
+  labels:
+    app: netshoot
+    region: eastus
+    location: virgina
+    geography: us
+    release-stage: dev
+spec:
+  containers:
+  - image: nicolaka/netshoot
+    command:
+      - sleep
+      - infinity
+    imagePullPolicy: IfNotPresent
+    name: netshoot
+  restartPolicy: Always
