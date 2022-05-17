@@ -174,21 +174,28 @@ done
 Open a shell in each pod and attempt to ping from one ubuntu demo app to another across the globally disparate regions.
 
 ```
-kubectl get pods -o wide --show-labels
-kubectl exec -it ubuntu bash
+for REGION in eastus westus2 northeurope westeurope
+do
+export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
+kubectl get pods -n default --show-lables
+done
 ```
 
 ```
-apt-get update && apt-get install -y iputils-ping
+kubectl exec -it netshoot -- bash
 ping POD_IP
 ```
 
 ## Multi Cluster Management Use Case: Enforce EU General Data Protection Regulation (GDPR) data residency requirements
 
-### Examine the label taxonomy applied to each ubuntu demo app
+### Examine the label taxonomy applied to each demo app
 
 ```
-cat ubuntu-* | grep label -A 6
+for REGION in eastus westus2 northeurope westeurope
+do
+export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
+kubectl get pods -n gdpr --show-lables
+done
 ```
 
 | eastus | westus2 | westeurope | northeurope |
@@ -244,14 +251,10 @@ spec:
     - Egress
 ```
 
-Open a shell in each pod and attempt to ping from one ubuntu demo app to another across the globally disparate regions.
+Open a shell in each pod and attempt to ping from one demo app to another across the globally disparate regions.
 
 ```
-kubectl get pods -o wide --show-labels
-kubectl exec -it ubuntu bash
-```
-
-```
+kubectl exec -it netshoot --  bash -n gdpr
 ping POD_IP
 ```
 
