@@ -166,7 +166,8 @@ kubectl create -f remote-cluster-configuration-northeurope.yaml
 for REGION in eastus westus2 northeurope westeurope
 do
 export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
-kubectl apply -f ubuntu-$REGION.yaml
+kubectl apply -f apps/default/netshoot-$REGION.yaml -n default
+kubectl apply -f apps/gdpr/netshoot-$REGION.yaml -n gdpr
 done
 ```
 
