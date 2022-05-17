@@ -171,7 +171,7 @@ kubectl apply -f apps/gdpr/netshoot-$REGION.yaml -n gdpr
 done
 ```
 
-Open a shell in each pod and attempt to ping from one ubuntu demo app to another across the globally disparate regions.
+Open a shell in each pod and attempt to ping from one demo app to another across the globally disparate regions.
 
 ```
 for REGION in eastus westus2 northeurope westeurope
@@ -200,7 +200,7 @@ done
 
 | eastus | westus2 | westeurope | northeurope |
 |-|-|-|-|
-| app: ubuntu<br>region: eastus<br>location: virgina<br>geography: us<br>release-stage: dev | app: ubuntu<br>region: westus2<br>location: washington<br>geography: us<br>release-stage: prod | app: ubuntu<br>region: westeurope<br>location: netherlands<br>geography: eu<br>release-stage: dev | app: ubuntu<br>region: northeurope<br>location: ireland<br>geography: eu<br>release-stage: prod |
+| app: netshoot<br>region: eastus<br>location: virgina<br>geography: us<br>release-stage: dev | app: netshoot<br>region: westus2<br>location: washington<br>geography: us<br>release-stage: prod | app: netshoot<br>region: westeurope<br>location: netherlands<br>geography: eu<br>release-stage: dev | app: netshoot<br>region: northeurope<br>location: ireland<br>geography: eu<br>release-stage: prod |
 
 We will use the `geography` label to identify workloads running across our global set of clusters by physical location and security compliance requirements.  We'll use the federated workload identity to apply policy and control traffic.
 
