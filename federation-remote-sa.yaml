@@ -1,0 +1,8 @@
+# Calico Enterprise Version v3.13.1
+# https://docs.tigera.io/v3.13/releases#v3.13.1
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tigera-federation-remote-cluster
+  namespace: kube-system

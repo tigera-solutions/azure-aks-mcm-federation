@@ -95,8 +95,8 @@ Apply the Federation RBAC and service account for each cluster.
 for REGION in eastus westus2 northeurope westeurope
 do
 export KUBECONFIG="$(pwd)/_output/calico-demo-$REGION/kubeconfig/kubeconfig.$REGION.json"
-kubectl apply -f https://docs.tigera.io/getting-started/kubernetes/installation/federation-rem-rbac-kdd.yaml
-kubectl apply -f https://docs.tigera.io/getting-started/kubernetes/installation/federation-remote-sa.yaml
+kubectl apply -f federation-rem-rbac-kdd.yaml
+kubectl apply -f federation-remote-sa.yaml
 done
 ```
 

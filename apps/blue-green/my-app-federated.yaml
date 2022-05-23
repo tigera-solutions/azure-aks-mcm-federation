@@ -6,7 +6,6 @@ metadata:
   annotations:
     federation.tigera.io/serviceSelector:
       run == "my-app"
-      version == ""
 spec:
   ports:
   - name: my-app-ui
